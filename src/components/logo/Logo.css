@@ -1,0 +1,25 @@
+.logo {
+	margin: 2rem;
+	margin-top: 0;
+}
+
+.Tilt {
+	border-radius: 0.25rem;
+	box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
+	background: rgb(88, 88, 94);
+	background: linear-gradient(
+		90deg,
+		#0a3fc4 1%,
+		rgb(152, 95, 107) 68%,
+		#880e02 82%
+	);
+	transition: transform 0.2s;
+}
+
+.Tilt:hover {
+	transform: scale(1.5);
+}
+
+.Tilt-inner {
+	padding: 1rem;
+}
