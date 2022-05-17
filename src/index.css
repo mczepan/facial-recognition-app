@@ -5,13 +5,13 @@ body {
 		sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background: rgb(88, 88, 94);
+	background: rgb(5, 136, 212);
 	background: linear-gradient(
 		90deg,
-		#102457 1%,
-		rgb(107, 8, 29) 68%,
-		#880e02 82%
+		rgba(5, 136, 212, 1) 0%,
+		rgba(245, 98, 23, 1) 100%
 	);
+	font-family: 'Courier New', Courier, monospace;
 }
 
 code {

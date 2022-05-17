@@ -6,12 +6,11 @@
 .Tilt {
 	border-radius: 0.25rem;
 	box-shadow: 0px 0px 8px 2px rgba(0, 0, 0, 0.2);
-	background: rgb(88, 88, 94);
+	background: rgb(5, 136, 212);
 	background: linear-gradient(
 		90deg,
-		#0a3fc4 1%,
-		rgb(152, 95, 107) 68%,
-		#880e02 82%
+		rgba(5, 136, 212, 1) 0%,
+		rgba(245, 98, 23, 1) 100%
 	);
 	transition: transform 0.2s;
 }

@@ -8,7 +8,7 @@ nav {
 	font-size: 1.25rem;
 	text-decoration: underline;
 	transition: all 0.15s ease-in;
-	color: rgb(255, 242, 0);
+	color: rgb(0, 0, 0);
 }
 
 .p-nav:hover {
