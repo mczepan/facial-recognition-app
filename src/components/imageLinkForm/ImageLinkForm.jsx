@@ -6,7 +6,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
 		<div>
 			<p className="p-img-link-form">{`This Magic Mario will detect faces in your pictures. Give it a try!`}</p>
 			<div className="center">
-				<div className="form">
+				<div className="form1">
 					<input
 						className="input-img-link-form"
 						type="text"

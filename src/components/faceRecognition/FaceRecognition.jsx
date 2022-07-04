@@ -2,7 +2,6 @@ import React from 'react';
 import './FaceRecognition.css';
 
 const FaceRecognition = ({ imgUrl, box }) => {
-	console.log('b', box);
 	return (
 		<div className="center">
 			<div style={{ marginTop: '1rem', position: 'absolute' }}>

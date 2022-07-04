@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './App.css';
-import Navigation from './components/navigation/Navigation';
-import Logo from './components/logo/Logo';
-import Rank from './components/rank/Rank';
-import ImageLinkForm from './components/imageLinkForm/ImageLinkForm';
-import FaceRecognition from './components/faceRecognition/FaceRecognition';
+import Navigation from './components/Navigation/Navigation';
+import Logo from './components/Logo/Logo';
+import Rank from './components/Rank/Rank';
+import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
+import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Clarifai from 'clarifai';
+import SignIn from './components/SignIn/SignIn';
 
 const app = new Clarifai.App({
 	apiKey: 'b8711d1c85db4bc482015e113b32a0b8',
@@ -50,18 +51,20 @@ function App() {
 	const displayFaceBox = (box) => {
 		setBox(box);
 	};
-
+	//https://www.youtube.com/watch?v=-bll7l-BKQI
 	return (
-		<div className="App">
-			<Navigation />
-			<Logo />
-			<Rank />
-			<ImageLinkForm
-				onInputChange={onInputChange}
-				onButtonSubmit={onButtonSubmit}
-			/>
-			<FaceRecognition imgUrl={imgUrl} box={box} />
-		</div>
+		<SignIn />
+
+		// <div className="App">
+		// 	<Navigation />
+		// 	<Logo />
+		// 	<Rank />
+		// 	<ImageLinkForm
+		// 		onInputChange={onInputChange}
+		// 		onButtonSubmit={onButtonSubmit}
+		// 	/>
+		// 	<FaceRecognition imgUrl={imgUrl} box={box} />
+		// </div>
 	);
 }
 
