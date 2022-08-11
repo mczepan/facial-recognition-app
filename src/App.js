@@ -16,6 +16,7 @@ function App() {
 	const [input, setInput] = useState('');
 	const [imgUrl, setImageUrl] = useState('');
 	const [box, setBox] = useState([]);
+	const [route, setRoute] = useState('signin');
 
 	const onInputChange = (event) => {
 		const { value } = event.target;
@@ -51,20 +52,27 @@ function App() {
 	const displayFaceBox = (box) => {
 		setBox(box);
 	};
-	//https://www.youtube.com/watch?v=-bll7l-BKQI
-	return (
-		<SignIn />
 
-		// <div className="App">
-		// 	<Navigation />
-		// 	<Logo />
-		// 	<Rank />
-		// 	<ImageLinkForm
-		// 		onInputChange={onInputChange}
-		// 		onButtonSubmit={onButtonSubmit}
-		// 	/>
-		// 	<FaceRecognition imgUrl={imgUrl} box={box} />
-		// </div>
+	const onRouteChange = (route) => {
+		setRoute(route);
+	};
+	return (
+		<div className="App">
+			<Navigation onRouteChange={onRouteChange} />
+			{route === 'signin' ? (
+				<SignIn onRouteChange={onRouteChange} />
+			) : (
+				<>
+					<Logo />
+					<Rank />
+					<ImageLinkForm
+						onInputChange={onInputChange}
+						onButtonSubmit={onButtonSubmit}
+					/>
+					<FaceRecognition imgUrl={imgUrl} box={box} />
+				</>
+			)}
+		</div>
 	);
 }
 

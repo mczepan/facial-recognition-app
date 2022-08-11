@@ -1,0 +1,73 @@
+.box-login-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.form-container {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
+}
+
+.muted-link {
+	font-size: 12px;
+	color: rgba(200, 200, 200, 0.8);
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.bold-link {
+	font-size: 12px;
+	color: rgb(5, 136, 212);
+	font-weight: 500;
+	text-decoration: none;
+}
+
+.input {
+	height: 42px;
+	outline: none;
+	border: 1px solid rgba(200, 200, 200, 0.1);
+	padding: 0px 10px;
+	border-bottom: 1.4px solid transparent;
+	transition: all 200ms ease-in-out;
+	font-size: 12px;
+}
+
+.input::placeholder {
+	outline: none;
+}
+
+.input:not(:last-of-type) {
+	border-bottom: 1.5px solid rgba(200, 200, 200, 0.4);
+}
+
+.input:focus {
+	outline: none;
+	border-bottom: 2px solid rgb(5, 136, 212);
+}
+
+.submit-button {
+	width: 100%;
+	padding: 11px 40%;
+	color: #fff;
+	font-size: 15px;
+	font-weight: 600;
+	border: none;
+	border-radius: 100px 100px 100px 100px;
+	cursor: pointer;
+	transition: all, 240ms ease-in-out;
+	background: rgb(5, 136, 212);
+	background: linear-gradient(
+		90deg,
+		rgba(5, 136, 212, 1) 0%,
+		rgba(245, 98, 23, 1) 100%
+	);
+}
+
+.submit-bottom:hover {
+	filter: brightness(1.03);
+}
