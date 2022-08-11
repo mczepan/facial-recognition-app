@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Navigation from './components/Navigation/Navigation';
 import Logo from './components/Logo/Logo';
@@ -7,6 +7,7 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import FaceRecognition from './components/FaceRecognition/FaceRecognition';
 import Clarifai from 'clarifai';
 import SignIn from './components/SignIn/SignIn';
+import { AccountContext } from './components/AccountBox/AccountContext';
 
 const app = new Clarifai.App({
 	apiKey: 'b8711d1c85db4bc482015e113b32a0b8',
@@ -17,6 +18,17 @@ function App() {
 	const [imgUrl, setImageUrl] = useState('');
 	const [box, setBox] = useState([]);
 	const [route, setRoute] = useState('signin');
+	const [isSignedIn, setIsSignedIn] = useState(false);
+
+	const [isExpanded, setIsExpanded] = useState(false);
+
+	useEffect(() => {
+		if (isExpanded) {
+			setTimeout(() => {
+				setIsExpanded(false);
+			}, [1000]);
+		}
+	}, [isExpanded]);
 
 	const onInputChange = (event) => {
 		const { value } = event.target;
@@ -55,23 +67,48 @@ function App() {
 
 	const onRouteChange = (route) => {
 		setRoute(route);
+		if (route === 'home') {
+			setIsSignedIn(true);
+		} else {
+			setIsSignedIn(false);
+		}
 	};
+	const switchToSignup = () => {
+		setIsExpanded(true);
+		setTimeout(() => {
+			onRouteChange('signup');
+		}, 500);
+	};
+	const switchToSignin = () => {
+		setIsExpanded(true);
+		setTimeout(() => {
+			onRouteChange('signin');
+		}, 500);
+	};
+
+	const contextValue = { switchToSignup, switchToSignin };
 	return (
 		<div className="App">
-			<Navigation onRouteChange={onRouteChange} />
-			{route === 'signin' ? (
-				<SignIn onRouteChange={onRouteChange} />
-			) : (
-				<>
-					<Logo />
-					<Rank />
-					<ImageLinkForm
-						onInputChange={onInputChange}
-						onButtonSubmit={onButtonSubmit}
+			<AccountContext.Provider value={contextValue}>
+				<Navigation onRouteChange={onRouteChange} isSignedIn={isSignedIn} />
+				{route === 'signin' || route === 'signup' ? (
+					<SignIn
+						onRouteChange={onRouteChange}
+						route={route}
+						isExpanded={isExpanded}
 					/>
-					<FaceRecognition imgUrl={imgUrl} box={box} />
-				</>
-			)}
+				) : (
+					<>
+						<Logo />
+						<Rank />
+						<ImageLinkForm
+							onInputChange={onInputChange}
+							onButtonSubmit={onButtonSubmit}
+						/>
+						<FaceRecognition imgUrl={imgUrl} box={box} />
+					</>
+				)}
+			</AccountContext.Provider>
 		</div>
 	);
 }

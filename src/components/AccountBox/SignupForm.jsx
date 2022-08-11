@@ -20,12 +20,12 @@ const SignupForm = (props) => {
 
 			<button className="submit-button">SignUp</button>
 			<br />
-			<a href="#" className="muted-link">
+			<span href="#" className="muted-link">
 				Already have an account?{' '}
 				<a href="#" className="bold-link" onClick={switchToSignin}>
 					Signin
 				</a>
-			</a>
+			</span>
 		</div>
 	);
 };

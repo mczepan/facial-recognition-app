@@ -19,9 +19,12 @@ const LoginForm = ({ onRouteChange }) => {
 				SignIn
 			</button>
 			<br />
-			<a href="#" className="muted-link" onClick={switchToSignup}>
-				Don't have an account? <a className="bold-link">Signup</a>
-			</a>
+			<span href="#" className="muted-link" onClick={switchToSignup}>
+				Don't have an account?{' '}
+				<a className="bold-link" style={{ cursor: 'pointer' }}>
+					Signup
+				</a>
+			</span>
 		</div>
 	);
 };

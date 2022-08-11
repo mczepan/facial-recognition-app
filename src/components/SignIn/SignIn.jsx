@@ -2,10 +2,16 @@ import React from 'react';
 import AccountBox from '../AccountBox/AccountBox';
 import './SignIn.css';
 
-const SignIn = ({ onRouteChange }) => {
+const SignIn = ({ onRouteChange, route, isExpanded }) => {
 	return (
 		<div className="app-container">
-			<AccountBox onRouteChange={onRouteChange}> </AccountBox>
+			<AccountBox
+				onRouteChange={onRouteChange}
+				route={route}
+				isExpanded={isExpanded}
+			>
+				{' '}
+			</AccountBox>
 		</div>
 	);
 };
