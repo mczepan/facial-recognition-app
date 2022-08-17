@@ -19,6 +19,7 @@ function App() {
 	const [box, setBox] = useState([]);
 	const [route, setRoute] = useState('signin');
 	const [isSignedIn, setIsSignedIn] = useState(false);
+	const [user, setUser] = useState(null);
 
 	const [isExpanded, setIsExpanded] = useState(false);
 
@@ -30,16 +31,35 @@ function App() {
 		}
 	}, [isExpanded]);
 
+	const loadUser = (user) => {
+		setUser(user);
+	};
+
 	const onInputChange = (event) => {
 		const { value } = event.target;
 		setInput(value);
 	};
 
-	const onButtonSubmit = () => {
+	const onPictureSubmit = () => {
 		setImageUrl(input);
 		app.models
 			.predict(Clarifai.FACE_DETECT_MODEL, input)
-			.then((res) => displayFaceBox(calculateFaceLocation(res)))
+			.then((res) => {
+				if (res) {
+					fetch(`http://localhost:3001/image/${user.id}`, {
+						method: 'put',
+						headers: { 'Content-Type': 'application/json' },
+					})
+						.then((res) => res.json())
+						.then((user) => {
+							if (user) {
+								loadUser(user);
+							}
+						});
+				}
+
+				displayFaceBox(calculateFaceLocation(res));
+			})
 			.catch((err) => console.log(err));
 	};
 
@@ -69,6 +89,7 @@ function App() {
 		setRoute(route);
 		if (route === 'home') {
 			setIsSignedIn(true);
+			setImageUrl('');
 		} else {
 			setIsSignedIn(false);
 		}
@@ -86,7 +107,7 @@ function App() {
 		}, 500);
 	};
 
-	const contextValue = { switchToSignup, switchToSignin };
+	const contextValue = { switchToSignup, switchToSignin, loadUser };
 	return (
 		<div className="App">
 			<AccountContext.Provider value={contextValue}>
@@ -100,10 +121,10 @@ function App() {
 				) : (
 					<>
 						<Logo />
-						<Rank />
+						<Rank user={user} />
 						<ImageLinkForm
 							onInputChange={onInputChange}
-							onButtonSubmit={onButtonSubmit}
+							onPictureSubmit={onPictureSubmit}
 						/>
 						<FaceRecognition imgUrl={imgUrl} box={box} />
 					</>

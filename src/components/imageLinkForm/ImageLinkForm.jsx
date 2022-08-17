@@ -1,7 +1,7 @@
 import React from 'react';
 import './ImageLinkForm.css';
 
-const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
+const ImageLinkForm = ({ onInputChange, onPictureSubmit }) => {
 	return (
 		<div>
 			<p className="p-img-link-form">{`This Magic Mario will detect faces in your pictures. Give it a try!`}</p>
@@ -12,7 +12,7 @@ const ImageLinkForm = ({ onInputChange, onButtonSubmit }) => {
 						type="text"
 						onChange={onInputChange}
 					/>
-					<button className="button-img-link-form" onClick={onButtonSubmit}>
+					<button className="button-img-link-form" onClick={onPictureSubmit}>
 						Detect
 					</button>
 				</div>
