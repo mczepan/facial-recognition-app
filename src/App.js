@@ -55,7 +55,8 @@ function App() {
 							if (user) {
 								loadUser(user);
 							}
-						});
+						})
+						.catch((err) => console.log(err));
 				}
 
 				displayFaceBox(calculateFaceLocation(res));
