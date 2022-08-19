@@ -27,7 +27,7 @@ const SignupForm = (props) => {
 	};
 
 	const signupHandler = (e) => {
-		fetch('http://localhost:3001/register', {
+		fetch('https://secure-coast-37694.herokuapp.com/register', {
 			method: 'post',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({

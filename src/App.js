@@ -37,7 +37,7 @@ function App() {
 
 	const onPictureSubmit = () => {
 		setImageUrl(input);
-		fetch(`http://localhost:3001/imageUrl`, {
+		fetch(`https://secure-coast-37694.herokuapp.com/imageUrl`, {
 			method: 'post',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify({
@@ -47,7 +47,7 @@ function App() {
 			.then((res) => res.json())
 			.then((res) => {
 				if (res) {
-					fetch(`http://localhost:3001/image/${user.id}`, {
+					fetch(`https://secure-coast-37694.herokuapp.com/image/${user.id}`, {
 						method: 'put',
 						headers: { 'Content-Type': 'application/json' },
 					})
