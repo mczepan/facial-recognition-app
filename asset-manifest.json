@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/facial-recognition-app/static/css/main.78b1fc0e.chunk.css",
+    "main.js": "/facial-recognition-app/static/js/main.f3ad137d.chunk.js",
+    "main.js.map": "/facial-recognition-app/static/js/main.f3ad137d.chunk.js.map",
+    "runtime-main.js": "/facial-recognition-app/static/js/runtime-main.fc923a18.js",
+    "runtime-main.js.map": "/facial-recognition-app/static/js/runtime-main.fc923a18.js.map",
+    "static/js/2.4ca9ef4f.chunk.js": "/facial-recognition-app/static/js/2.4ca9ef4f.chunk.js",
+    "static/js/2.4ca9ef4f.chunk.js.map": "/facial-recognition-app/static/js/2.4ca9ef4f.chunk.js.map",
+    "static/js/3.d20fc67d.chunk.js": "/facial-recognition-app/static/js/3.d20fc67d.chunk.js",
+    "static/js/3.d20fc67d.chunk.js.map": "/facial-recognition-app/static/js/3.d20fc67d.chunk.js.map",
+    "index.html": "/facial-recognition-app/index.html",
+    "static/css/main.78b1fc0e.chunk.css.map": "/facial-recognition-app/static/css/main.78b1fc0e.chunk.css.map",
+    "static/js/2.4ca9ef4f.chunk.js.LICENSE.txt": "/facial-recognition-app/static/js/2.4ca9ef4f.chunk.js.LICENSE.txt",
+    "static/media/mario.0a95dcb1.svg": "/facial-recognition-app/static/media/mario.0a95dcb1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.fc923a18.js",
+    "static/js/2.4ca9ef4f.chunk.js",
+    "static/css/main.78b1fc0e.chunk.css",
+    "static/js/main.f3ad137d.chunk.js"
+  ]
+}
